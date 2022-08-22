@@ -9,6 +9,16 @@ function addSelectedPlayers(btnClick) {
         return;
     }
     playerArray.push(playerName);
+    const addField = document.getElementById('tableBody');
+    addField.innerText = '';
+    for (let i = 0; i < playerArray.length; i++) {
+        const tr = document.createElement("tr");
+        tr.innerHTML = `
+        <th scope="row">${i + 1}</th>
+        <td>${playerArray[i]}</td>
+        `
+        addField.appendChild(tr);
+    }
 
 }
 
