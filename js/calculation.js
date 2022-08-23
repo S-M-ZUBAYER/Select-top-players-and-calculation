@@ -15,15 +15,15 @@ function addSelectedPlayers(btnClick) {
     btnClick.disabled = true;
 
     // <--------to show the player list in my website ------------->
-    const addField = document.getElementById('tableBody');
-    addField.innerText = '';
+    const playersAddField = document.getElementById('tableBody');
+    playersAddField.innerText = '';
     for (let i = 0; i < playerArray.length; i++) {
         const addPlayers = document.createElement("tr");
         addPlayers.innerHTML = `
         <th scope="row">${i + 1}</th>
         <td>${playerArray[i]}</td>
         `
-        addField.appendChild(addPlayers);
+        playersAddField.appendChild(addPlayers);
     }
 
 
