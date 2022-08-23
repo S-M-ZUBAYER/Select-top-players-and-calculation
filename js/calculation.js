@@ -3,12 +3,17 @@
 const playerArray = [];
 function addSelectedPlayers(btnClick) {
     const playerName = btnClick.parentNode.parentNode.children[0].innerText;
+
+
     const len = playerArray.length;
     if (len == 5) {
         alert("You can't select more than 5 players")
         return;
     }
     playerArray.push(playerName);
+    btnClick.style.backgroundColor = "#a4f4f9";
+    btnClick.disabled = true;
+
     const addField = document.getElementById('tableBody');
     addField.innerText = '';
     for (let i = 0; i < playerArray.length; i++) {
@@ -19,6 +24,7 @@ function addSelectedPlayers(btnClick) {
         `
         addField.appendChild(tr);
     }
+
 
 }
 
@@ -45,12 +51,16 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     const perPlayerExpenses = gotInputValue('perPlayer-expenses');
     if (perPlayerExpenses == 'error') {
         setInnerText('player-expenses', '00');
+        setInnerText('total-expenses', '00');
         return;
     }
 
     const totalPlayer = playerArray.length;
+    if (totalPlayer == 0) {
+        alert("First you have to select the players")
+        return;
+    }
     const totalPlayerExpenses = perPlayerExpenses * totalPlayer;
-    console.log(totalPlayer, totalPlayerExpenses)
     setInnerText('player-expenses', totalPlayerExpenses);
 })
 
