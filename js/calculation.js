@@ -11,7 +11,7 @@ function addSelectedPlayers(btnClick) {
     }
 
     playerArray.push(playerName);
-    btnClick.style.backgroundColor = "#a4f4f9";
+    btnClick.style.backgroundColor = "#A2A9AF";
     btnClick.disabled = true;
 
     // <--------to show the player list in my website ------------->
